@@ -1,0 +1,20 @@
+footer {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color: #212529;
+  padding: .5em 0em .25em 0em;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
