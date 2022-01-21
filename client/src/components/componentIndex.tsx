@@ -1,25 +1,32 @@
-import All from "../components/All";
-import About from "../components/About";
-import Home from "../components/Home";
-import NoPage from "../components/NoPage";
-import SignIn from "../components/SignIn";
-import SignUp from "../components/SignUp";
-import SignOut from "../components/SignOut";
-import Videos from "../components/Videos";
-import Journals from "../components/Journals";
-import Pictures from "../components/Pictures";
-import Welcome from "../components/Welcome";
+import All from "./All";
+import About from "./About";
+import NoPage from "./NoPage";
+import Home from "./Home";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import SignOut from "./SignOut";
+import Videos from "./Videos";
+import Journals from "./Journals";
+import Pictures from "./Pictures";
+import Welcome from "./Welcome";
 import FooterBar from "../components/FooterBar";
-import PrivateRoute from "../components/PrivateRoute";
-import NavigationBar from "../components/NavigationBar";
+import PrivateRoute from "./PrivateRoute";
+import NavigationBar from "./NavigationBar";
+import Settings from "./Settings";
+import Profile from "./Profile";
+import ResetPassword from "./ResetPassword";
+import CreatePost from "./CreatePost";
+import EditProfile from "./EditProfile";
 
-export { 
+export {
   All,
   About,
-  Home,
+  CreatePost,
+  EditProfile,
   NoPage,
   SignIn,
   SignUp,
+  Home,
   SignOut,
   Videos,
   Journals,
@@ -28,4 +35,7 @@ export {
   FooterBar,
   PrivateRoute,
   NavigationBar,
-}
+  Settings,
+  Profile,
+  ResetPassword,
+};

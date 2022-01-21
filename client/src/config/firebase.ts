@@ -1,12 +1,29 @@
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
-import config from './config';
+import { initializeApp } from "firebase/app";
+import {
+  GoogleAuthProvider,
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  deleteUser,
+} from "firebase/auth";
+import config from "./config";
 
-const Firebase = firebase.initializeApp(config.firebase);
+const app = initializeApp(config.firebase);
 
 export const Providers = {
-  google: new firebase.auth.GoogleAuthProvider()
-}
+  google: new GoogleAuthProvider(),
+};
 
-export const auth = firebase.auth()
-export default Firebase;
+export {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  deleteUser,
+};
+export default app;

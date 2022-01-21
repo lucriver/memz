@@ -8,8 +8,9 @@ const SignOut = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    auth.signout();
-    navigate("/sign-in", { replace: true });
+    auth.signout()
+      .then(() => navigate("/sign-in", { replace: true }))
+      .catch((err: any) => console.log(err))
   }, []);
 
   return (

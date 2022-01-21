@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Alert, Container } from "react-bootstrap";
+import { Alert, Button, Card, Form, Container } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
-import { Button, Card, Form } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
+import { request, gql } from "graphql-request";
 
 const SignUp = () => {
+  const firstNameRef = useRef<any>("");
   const emailRef = useRef<any>("");
   const passwordRef = useRef<any>("");
   const passwordConfirmRef = useRef<any>("");
@@ -20,12 +21,54 @@ const SignUp = () => {
 
     try {
       setError(null);
-      await auth.signup(emailRef.current.value, passwordRef.current.value);
-      navigate("/welcome", { replace: true });
+      return await auth.signup(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
     } catch {
       setError("Sorry, we couldn't sign you up.");
     }
   }
+
+  async function createUser(
+    user: string,
+    email: string,
+    name: string
+  ): Promise<any> {
+    try {
+      const variables = {
+        user: {
+          user_id: user,
+          email: email,
+          first_name: name,
+        },
+      };
+      const mutation = gql`
+        mutation Mutation($user: UserInput) {
+          createUser(user: $user) {
+            first_name
+            user_id
+            email
+            date_joined
+          }
+        }
+      `;
+      return await request("/", mutation, variables);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  useEffect(() => {
+    try {
+      createUser(
+        auth.currentUser.uid,
+        emailRef.current.value,
+        firstNameRef.current.value
+      );
+      navigate("/welcome", { replace: true });
+    } catch (err) {}
+  }, [auth.currentUser]);
 
   return (
     <>
@@ -39,6 +82,10 @@ const SignUp = () => {
               <h1>Sign Up</h1>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={(e) => handleSubmit(e)}>
+                <Form.Group id="name-first">
+                  <Form.Label>First Name</Form.Label>
+                  <Form.Control type="input" ref={firstNameRef} required />
+                </Form.Group>
                 <Form.Group id="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" ref={emailRef} required />

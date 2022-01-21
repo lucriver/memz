@@ -4,7 +4,7 @@ import "../components/component-styles.css";
 const FooterBar = () => {
   return (
     <>
-      <Container>
+      <Container style={{margin: "1.5em 0em 0em 0em"}}>
         <footer>
           <a
             href="about"

@@ -17,7 +17,7 @@ const SignIn = () => {
     try {
       setError(null);
       await auth.signin(emailRef.current.value, passwordRef.current.value);
-      navigate("/all", { replace: true });
+      navigate("/welcome", { replace: true });
     } catch {
       setError("Invalid credentials, please try again.");
     }
@@ -53,6 +53,9 @@ const SignIn = () => {
           <div className="w-100 text-center mt-2">
             <h6>
               Don't have an account? <Link to="/sign-up">Sign Up</Link>
+            </h6>
+            <h6>
+              Forgot your password? <Link to="/reset-password">Reset It</Link>
             </h6>
           </div>
         </div>

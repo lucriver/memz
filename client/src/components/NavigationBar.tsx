@@ -21,7 +21,12 @@ const NavigationBar = () => {
 
   return (
     <>
-      <Navbar sticky="top" bg="dark" variant="dark">
+      <Navbar
+        sticky="top"
+        bg="dark"
+        variant="dark"
+        style={{ margin: "0em 0em 1em 0em" }}
+      >
         <Container>
           <Dropdown>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -39,7 +44,7 @@ const NavigationBar = () => {
             </Dropdown.Menu>
           </Dropdown>
           <a
-            href="/home"
+            href="/welcome"
             style={{
               fontSize: "3em",
               color: "white",
@@ -49,7 +54,7 @@ const NavigationBar = () => {
               gap: "5px",
             }}
           >
-            <h5 style={{ margin: ".5px 0px 0px 0px" }}>Mems</h5>
+            <h5 style={{ margin: ".5px 0px 0px 0px" }}>Memz</h5>
             <RiCamera3Fill />
           </a>
           <Dropdown>
@@ -69,7 +74,6 @@ const NavigationBar = () => {
           </Dropdown>
         </Container>
       </Navbar>
-      <br />
       <Outlet />
     </>
   );

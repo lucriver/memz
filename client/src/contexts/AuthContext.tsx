@@ -1,5 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
-import Firebase from "../config/firebase";
+import { User as firebaseUser } from "@firebase/auth-types";
+import { UserCredential } from "@firebase/auth-types";
+import app from "../config/firebase";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  deleteUser,
+} from "../config/firebase";
 
 //Create the context
 const AuthContext = React.createContext<any>(undefined);
@@ -15,26 +26,42 @@ interface Props {
 }
 
 export const AuthProvider = ({ children }: Props) => {
-  const [currentUser, setCurrentUser] = useState<any>();
+  const [currentUser, setCurrentUser] = useState<firebaseUser | null>();
   const [loading, setLoading] = useState<boolean>(true);
 
-  function signup(email: string, password: string) {
-    return Firebase.auth().createUserWithEmailAndPassword(email, password);
+  async function signup(email: string, password: string): Promise<any> {
+    const auth = getAuth();
+    return await createUserWithEmailAndPassword(auth, email, password);
   }
 
-  function signin(email: string, password: string) {
-    return Firebase.auth().signInWithEmailAndPassword(email, password);
+  function signin(email: string, password: string): Promise<any> {
+    const auth = getAuth();
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
-  function signout() {
-    return Firebase.auth().signOut();
+  function signout(): Promise<void> {
+    const auth = getAuth();
+    return signOut(auth);
+  }
+
+  function resetPassword(email: string): Promise<any> {
+    const auth = getAuth();
+    return sendPasswordResetEmail(auth, email);
+  }
+
+  function deleteCreds(): Promise<any> {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    return deleteUser(user!);
   }
 
   useEffect(() => {
-    const unsubscribe = Firebase.auth().onAuthStateChanged((user) => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user: any) => {
       setCurrentUser(user);
       setLoading(false);
     });
+
     return unsubscribe;
   }, []);
 
@@ -43,6 +70,8 @@ export const AuthProvider = ({ children }: Props) => {
     signup,
     signin,
     signout,
+    deleteCreds,
+    resetPassword
   };
 
   return (
