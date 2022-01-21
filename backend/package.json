@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "apollodev": "cd src && nodemon index.ts"
+    "apollodev": "cd src && nodemon index.ts",
+    "postinstall": "tsc",
+    "start": "tsc && node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +15,9 @@
   "dependencies": {
     "apollo-datasource-rest": "^3.5.0",
     "apollo-server": "^3.6.1",
-    "dotenv": "^14.2.0"
+    "dotenv": "^14.2.0",
+    "node": "^17.3.1",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",

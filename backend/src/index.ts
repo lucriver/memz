@@ -5,7 +5,7 @@ const MemzAPI = require('./dataSource')
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env')})
 
-const port = process.env.PORT || 8080;
+const port = 5000;
 
 const server = new ApolloServer({
   typeDefs,
