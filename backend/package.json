@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "apollodev": "cd src && nodemon index.ts",
-    "postinstall": "tsc",
-    "start": "tsc && node dist/index.js"
+    "start": "npm install && tsc && node dist/index.js"
   },
   "keywords": [],
   "author": "",

@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd backend && npm install && tsc && node dist/index.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "start": "cd backend && node dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucriver/UntitledProject2.git"
+    "url": "git+https://github.com/lucriver/UntitledProject2.git",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
