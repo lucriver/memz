@@ -1,0 +1,25 @@
+{
+  "name": "memz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd backend && cd src && tsc index.ts",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucriver/UntitledProject2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucriver/Memz/issues"
+  },
+  "engines": {
+    "node": "16.13.1"
+  },
+  "homepage": "https://github.com/lucriver/Memz#readme"
+}
