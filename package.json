@@ -4,11 +4,15 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd backend && npm install && npm run tsc && node dist/index.js"
+    "heroku-postbuild": "cd backend && npm install && npm run tsc",
+    "start": "node backend/dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucriver/Memz.git"
+  },
+  "dependencies": {
+    "node": "^14.17.1"
   },
   "keywords": [],
   "author": "",
