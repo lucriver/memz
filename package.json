@@ -5,8 +5,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install && npm run tsc && npm run build",
-    "start": "tsc && node dist/index.js"
+    "heroku-postbuild": "tsc && cd client && npm install && npm run tsc && npm run build",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "ts-node": "^10.4.0"
   },
   "engines": {
-    "node": "14.17.6"
+    "node": "16.13.1"
   },
   "keywords": [],
   "author": "",
