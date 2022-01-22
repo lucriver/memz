@@ -22,6 +22,14 @@ const server = new ApolloServer({
   },
 });
 
+if(process.env.NODE_ENV === 'production'){
+  server.use(ApolloServer.static('client/build/'));
+
+  server.get('*', (req: any,res: any) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
+
 server.listen(port, () => {
   console.log(`Server is running on port: ${port}.`);
 });
