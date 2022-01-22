@@ -5,10 +5,10 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm run buildback && npm run buildfront",
+    "heroku-postbuild": "npm run buildback && npm run",
     "buildfront": "cd client && npm install && npm run tsc && npm run build",
     "buildback": "cd backend && npm install && npm run tsc",
-    "start": "node backend/dist/index.js"
+    "start": "serve client/build"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "concurrently": "^7.0.0",
-    "node": "^14.17.1"
+    "node": "^14.17.1",
+    "serve": "^13.0.2"
   },
   "keywords": [],
   "author": "",
