@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
 import {
   Alert,
   Button,
@@ -10,7 +9,8 @@ import {
   Form,
   Row,
 } from "react-bootstrap";
-import { request, gql } from "graphql-request";
+import { graphQLClient } from "../config/gqlclient";
+import { gql } from "graphql-request";
 import { useAuth } from "../contexts/AuthContext";
 
 const CreatePost = () => {
@@ -56,7 +56,7 @@ const CreatePost = () => {
           }
         }
       `;
-      await request("/", mutation, variables);
+      await graphQLClient.request(mutation, variables);
       setAlert("Success! Your post has been created.");
       setTone("success");
     } catch (err) {

@@ -1,9 +1,13 @@
-import { RESTDataSource } from "apollo-datasource-rest";
+import { RESTDataSource, RequestOptions } from "apollo-datasource-rest";
 
 class MemzAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.BASEURL;
+  }
+
+  willSendRequest(request: RequestOptions){
+    request.headers.set('authorization',this.context.token)
   }
 
   // Get a specific user's credentials only

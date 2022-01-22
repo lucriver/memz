@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Alert,
@@ -6,13 +6,13 @@ import {
   Container,
   Col,
   Card,
-  Row,
-  Image,
+  Row
 } from "react-bootstrap";
 import { BsTrash } from "react-icons/bs";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { useAuth } from "../contexts/AuthContext";
-import { request, gql } from "graphql-request";
+import { graphQLClient } from "../config/gqlclient";
+import { gql } from "graphql-request";
 
 const All = () => {
   const auth = useAuth();
@@ -37,7 +37,7 @@ const All = () => {
           }
         }
       `;
-      return await request("/", query, variables);
+      return await graphQLClient.request(query, variables);
     } catch {
       setAlert("Sorry, we couldn't load your posts right now.");
       return await ["ERROR"];
@@ -79,7 +79,7 @@ const All = () => {
           }
         }
       `;
-      await request("/", mutation, variables);
+      await graphQLClient.request(mutation, variables);
       window.location.reload();
     } catch (err) {
       console.log(user + " " + post_number);

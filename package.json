@@ -2,16 +2,15 @@
   "name": "memz",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd backend && tsc && node dist/index.js",
-    "build": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "start": "cd backend && tsc && node dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucriver/UntitledProject2.git",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "url": "git+https://github.com/lucriver/Memz.git"
   },
   "keywords": [],
   "author": "",
@@ -26,9 +25,9 @@
   "dependencies": {
     "apollo-datasource-rest": "^3.5.0",
     "apollo-server": "^3.6.1",
+    "cors": "^2.8.5",
     "dotenv": "^14.2.0",
-    "node": "^17.3.1",
-    "cors": "^2.8.5"
+    "node": "^17.3.1"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",

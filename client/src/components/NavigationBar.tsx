@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { Navbar, Container, Nav, Button, Dropdown } from "react-bootstrap";
+import { Navbar, Container, Dropdown } from "react-bootstrap";
 import "./component-styles.css";
 import { BsPersonCircle } from "react-icons/bs";
 import { FaBook } from "react-icons/fa";

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Alert, Button, Card, Container, Modal } from "react-bootstrap";
-import { request, gql } from "graphql-request";
+import { graphQLClient } from "../config/gqlclient";
+import { gql } from "graphql-request";
 
 const Settings = () => {
   const auth = useAuth();
@@ -38,7 +39,7 @@ const Settings = () => {
           }
         }
       `;
-      return await request("/", mutation, variables);
+      return await graphQLClient.request(mutation, variables);
     } catch (err) {
       setTone("warning");
       setAlert("We could not delete you from our database. Sorry.");
@@ -59,7 +60,7 @@ const Settings = () => {
       `;
       setTone("success");
       setAlert("Success, all posts have been deleted.");
-      return await request("/", mutation, variables);
+      return await graphQLClient.request(mutation, variables);
     } catch (err) {
       setTone("warning");
       setAlert("Sorry, we could not delete your posts at this time.");

@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { User as firebaseUser } from "@firebase/auth-types";
-import { UserCredential } from "@firebase/auth-types";
-import app from "../config/firebase";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -71,7 +69,7 @@ export const AuthProvider = ({ children }: Props) => {
     signin,
     signout,
     deleteCreds,
-    resetPassword
+    resetPassword,
   };
 
   return (

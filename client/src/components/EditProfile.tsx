@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Alert,
@@ -7,10 +7,10 @@ import {
   Container,
   Col,
   Form,
-  Image,
   Row,
 } from "react-bootstrap";
-import { request, gql } from "graphql-request";
+import { graphQLClient } from "../config/gqlclient";
+import { gql } from "graphql-request";
 
 const EditProfile = () => {
   const urlRef = useRef<any>();
@@ -44,7 +44,7 @@ const EditProfile = () => {
           }
         }
       `;
-      await request("/", mutation, variables);
+      await graphQLClient.request(mutation, variables);
       navigate("/profile", { replace: true });
     } catch {
       setTone("warning");

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaPencilAlt } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { Button, Container, Col, Row, Image } from "react-bootstrap";
-import { request, gql } from "graphql-request";
+import { graphQLClient } from "../config/gqlclient";
+import { gql } from "graphql-request";
 
 const Profile = () => {
   const [user, setUser] = useState<any>("");
@@ -26,7 +27,7 @@ const Profile = () => {
           }
         }
       `;
-      return await request("/", query, variables);
+      return await graphQLClient.request(query, variables);
     } catch (err) {}
   }
 

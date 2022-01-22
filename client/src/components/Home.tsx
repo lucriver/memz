@@ -1,4 +1,3 @@
-import React from "react";
 import writing from "../images/writing.jpg";
 import picture from "../images/photo.jpg";
 import video from "../images/video.jpg";

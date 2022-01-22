@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Button, Col, Row, Image } from "react-bootstrap";
+import { Container, Col, Row, Image } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import { request, gql } from "graphql-request";
+import { graphQLClient } from "../config/gqlclient";
+import { gql } from "graphql-request";
 
 const Welcome = () => {
   const [user, setUser] = useState<any>("");
@@ -19,7 +20,7 @@ const Welcome = () => {
         }
       }
     `;
-    return await request("/", query, variables);
+    return await graphQLClient.request(query, variables);
   }
 
   useEffect(() => {

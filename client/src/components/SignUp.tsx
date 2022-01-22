@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { Alert, Button, Card, Form, Container } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { request, gql } from "graphql-request";
+import { graphQLClient } from "../config/gqlclient";
+import { gql } from "graphql-request";
 
 const SignUp = () => {
   const firstNameRef = useRef<any>("");
@@ -53,7 +54,7 @@ const SignUp = () => {
           }
         }
       `;
-      return await request("/", mutation, variables);
+      return await graphQLClient.request(mutation, variables);
     } catch (error) {
       return error;
     }
