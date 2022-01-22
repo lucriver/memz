@@ -5,8 +5,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "tsc && cd client && npm install && npm run build && serve -s build",
-    "start": "node dist/index.js"
+    "heroku-postbuild": "tsc && cd client && npm install && npm run build",
+    "start": "node dist/index.js && serve client/build"
   },
   "repository": {
     "type": "git",
