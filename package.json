@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd backend && npm install && npm run tsc",
+    "heroku-postbuild": "npm run buildback && npm run buildfront",
+    "buildfront": "cd client && npm install && npm run tsc && npm run build",
+    "buildback": "cd backend && npm install && npm run tsc",
     "start": "node backend/dist/index.js"
   },
   "repository": {
