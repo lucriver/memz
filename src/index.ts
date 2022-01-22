@@ -1,4 +1,5 @@
 const { ApolloServer } = require("apollo-server");
+const { ApolloServerPluginLandingPageDisabled } = require("apollo-server-core");
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
 const MemzAPI = require("./dataSource");
@@ -10,10 +11,11 @@ const port = process.env.PORT || 8080;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  plugins: [ApolloServerPluginLandingPageDisabled()],
   dataSources: () => ({
     MemzAPI: new MemzAPI(),
   }),
-  context: ({req}: any) => {
+  context: ({ req }: any) => {
     return {
       token: req.headers.authorization || " ",
     };
