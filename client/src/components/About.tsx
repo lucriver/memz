@@ -7,6 +7,7 @@ import {
 import graphql from "../images/graphql.png";
 import typescript from "../images/typescript.png";
 import psql from "../images/psql.png";
+import firebase from "../images/firebase.png";
 
 const About = () => {
   return (
@@ -29,7 +30,7 @@ const About = () => {
             </p>
           </Col>
           <Col style={{ textAlign: "center" }}>
-            <RiCamera3Fill style={{ fontSize: "9em" }} />
+            <RiCamera3Fill style={{ color: "#0d6efd", fontSize: "9em" }} />
           </Col>
         </Row>
         <Row style={{ alignItems: "center" }}>
@@ -54,6 +55,9 @@ const About = () => {
               <Col>
                 <Image src={psql} />
               </Col>
+              <Col>
+                <Image src={firebase} />
+              </Col>
             </Row>
           </Col>
         </Row>
@@ -63,7 +67,7 @@ const About = () => {
             <p>This code is available and free to use under the MIT License.</p>
           </Col>
           <Col style={{ textAlign: "center" }}>
-            <a href="https://github.com/lucriver/Memz">
+            <a href="https://github.com/lucriver?tab=repositories&q=memz&type=&language=&sort=">
               <RiGithubFill style={{ fontSize: "9em" }} />
             </a>
           </Col>
@@ -81,7 +85,7 @@ const About = () => {
             </p>
           </Col>
           <Col style={{ textAlign: "center" }}>
-            <RiErrorWarningFill style={{ fontSize: "9em" }} />
+            <RiErrorWarningFill style={{ color: "#0d6efd", fontSize: "9em" }} />
           </Col>
         </Row>
       </Container>

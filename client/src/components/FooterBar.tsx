@@ -4,7 +4,7 @@ import "../components/component-styles.css";
 const FooterBar = () => {
   return (
     <>
-      <Container style={{margin: "1.5em 0em 0em 0em"}}>
+      <Container style={{ margin: "1.5em 0em 0em 0em" }}>
         <footer>
           <a
             href="about"
@@ -16,7 +16,7 @@ const FooterBar = () => {
             <h6>About This Project</h6>
           </a>
           <a
-            href="http://www.lucasrh.com"
+            href="http://www.lucasrh.com/#projects"
             target="_blank"
             style={{
               textDecoration: "none",
