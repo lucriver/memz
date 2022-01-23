@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Alert,
@@ -37,6 +37,7 @@ const EditProfile = () => {
           location: locationRef.current.value,
         },
       };
+      console.log(variables)
       const mutation = gql`
         mutation Mutation($user: UserInput) {
           updateUser(user: $user) {
