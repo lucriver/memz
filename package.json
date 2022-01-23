@@ -6,14 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "start": "cd client && serve -s build"
+    "start": "serve -s client/build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucriver/Memz.git"
   },
   "dependencies": {
-    "node": "14.17.6"
+    "node": "14.17.6",
+    "serve": "^13.0.2"
   },
   "engines": {
     "node": "14.17.6"
