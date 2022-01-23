@@ -27,9 +27,10 @@ const EditProfile = () => {
     e.preventDefault();
 
     try {
+      console.log(state)
       const variables = {
         user: {
-          user_id: state.user?.user_id,
+          user_id: state.user.user_id,
           first_name: fNameRef.current.value,
           last_name: lNameRef.current.value,
           bio: bioRef.current.value,
@@ -37,7 +38,7 @@ const EditProfile = () => {
           location: locationRef.current.value,
         },
       };
-      console.log(variables)
+      console.log(variables);
       const mutation = gql`
         mutation Mutation($user: UserInput) {
           updateUser(user: $user) {
@@ -45,7 +46,7 @@ const EditProfile = () => {
           }
         }
       `;
-      await graphQLClient.request(mutation, variables);
+      await graphQLClient.request(mutation,variables);
       navigate("/profile", { replace: true });
     } catch {
       setTone("warning");

@@ -1,10 +1,9 @@
 import { GraphQLClient } from "graphql-request";
 
-export const graphQLClient = new GraphQLClient(
-  "https://memz-gql.herokuapp.com/",
-  {
-    headers: {
-      authorization: process.env.REACT_APP_ACCESSKEY!,
-    },
-  }
-);
+const endpoint = "https://memz-gql.herokuapp.com/";
+
+export const graphQLClient = new GraphQLClient(endpoint, {
+  headers: {
+    authorization: process.env.REACT_APP_ACCESSKEY!,
+  },
+});

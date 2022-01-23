@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaPencilAlt } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
@@ -17,6 +17,7 @@ const Profile = () => {
       const query = gql`
         query Query($userId: String) {
           user(user_id: $userId) {
+            user_id
             email
             first_name
             last_name
@@ -57,7 +58,9 @@ const Profile = () => {
 
   useEffect(() => {
     const response = queryUser();
-    response.then((res) => setUser(res.user));
+    response.then((res) => {
+      setUser(res.user);
+    });
   }, []);
 
   return (
