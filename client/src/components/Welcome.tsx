@@ -27,7 +27,6 @@ const Welcome = () => {
 
   useEffect(() => {
     const response = getUser();
-    console.log(response);
     response.then((res) => setUser(res.user));
     if (user!.first_name == undefined) setIsLoading(true);
   }, [isLoading]);
